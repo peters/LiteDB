@@ -628,8 +628,8 @@ namespace LiteDB
             // removing whitespaces
             var text = (String)RawValue;
 
-            if (options.TrimWhitespace) text = text.Trim();
-            if (options.IgnoreCase) text = text.ToLower();
+            if (options.TrimWhitespace) text = text == null ? string.Empty : text.Trim();
+            if (options.IgnoreCase) text = text == null ? string.Empty : text.ToLower();
 
             // convert emptystring to null
             if (text.Length == 0 && options.EmptyStringToNull)
